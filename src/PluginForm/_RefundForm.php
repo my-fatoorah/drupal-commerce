@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_myfatoorah_v2\PluginForm;
+namespace MyFatoorah\DrupalCommerce\PluginForm;
 
 use Drupal\commerce_payment\PluginForm\PaymentRefundForm;
 
