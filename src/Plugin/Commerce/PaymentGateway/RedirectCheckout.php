@@ -1,6 +1,6 @@
 <?php
 
-namespace MyFatoorah\DrupalCommerce\Plugin\Commerce\PaymentGateway;
+namespace Drupal\myfatoorah_drupa_commerce\Plugin\Commerce\PaymentGateway;
 
 use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayBase;
@@ -19,7 +19,7 @@ use MyFatoorah\Library\PaymentMyfatoorahApiV2;
  *   label = @Translation("MyFatoorah (Redirect to MyFatoorah)"),
  *   display_label = @Translation("MyFatoorah"),
  *   forms = {
- *     "offsite-payment" = "MyFatoorah\DrupalCommerce\PluginForm\RedirectCheckoutForm",
+ *     "offsite-payment" = "Drupal\myfatoorah_drupa_commerce\PluginForm\RedirectCheckoutForm",
  *   },
  *   payment_method_types = {"credit_card"},
  *   credit_card_types = {
@@ -29,7 +29,7 @@ use MyFatoorah\Library\PaymentMyfatoorahApiV2;
  */
 //     "MyFatoorah", "Knet", "Visa / Master Card", "Mada KSA", "Benefit", "Qatar Debit Card - NAPS", "Debit Cards UAE - VISA UAE", "Sadad", "AMEX", "Apple Pay", "KFast", "AFS", "STC Pay",
 //     "myfatoorah", "kn", "vm", "md", "b", "np", "uaecc", "s", "ae", "ap", "kf", "af", "stc",
-//"refund-payment" = "MyFatoorah\DrupalCommerce\PluginForm\RefundForm",
+//"refund-payment" = "Drupal\myfatoorah_drupa_commerce\PluginForm\RefundForm",
 class RedirectCheckout extends OffsitePaymentGatewayBase {
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 //    public $entityId;

@@ -1,5 +1,5 @@
 {
-    "name": "myfatoorah/myfatoorah-drupal-commerce",
+    "name": "myfatoorah/myfatoorah_drupal_commerce",
     "description": "The official MyFatoorah Payment Gateway for Drupal Commerce.",
     "version": "2.1.0",
     "type": "drupal-module",
