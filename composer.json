@@ -1,40 +1,18 @@
 {
-    "name": "myfatoorah/myfatoorah_drupal_commerce",
-    "description": "The official MyFatoorah Payment Gateway for Drupal Commerce.",
-    "version": "2.1.0",
+    "name": "drupal/commerce_myfatoorah_v2",
+    "description": "Provides Commerce integration for Myfatoorah V2.",
+    "version": "2.0.0.1",
     "type": "drupal-module",
-    "license": [
-        "GPL-3.0-only"
-    ],
     "require": {
-        "myfatoorah/library": "2.0.0",
         "drupal/commerce": "^2.0"
     },
-    "keywords": [
-        "MyFatoorah",
-        "My Fatoorah",
-        "Fatoorah",
-        "gateway",
-        "payment",
-        "Shipping",
-        "api",
-        "commerce",
-        "Drupal"
-    ],
+    "license": "GPL-2.0+",
+    "keywords": ["Drupal", "Myfatoorah"],
     "homepage": "https://myfatoorah.com/",
     "authors": [
         {
-            "name": "MyFatoorah Plugin Team"
-        },
-        {
-            "name": "Nermeen Shoman",
-            "email": "nshoman@myfatoorah.com",
-            "role": "Senior Software Engineer"
-        },
-        {
             "name": "Rasha Saeed",
-            "email": "rsaeed@myfatoorah.com",
-            "role": "Senior Software Engineer"
+            "role": "Developer"
         }
     ]
 }

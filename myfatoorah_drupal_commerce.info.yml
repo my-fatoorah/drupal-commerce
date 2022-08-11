@@ -1,9 +1,0 @@
-name: MyFatoorah for Drupal Commerce
-description: Provides Integration with the MyFatoorah V2 Payment Gateway for Drupal Commerce (http://www.MyFatoorah.com)
-type: module
-package: Commerce (contrib)
-dependencies:
-  - commerce:commerce_payment
-version: '2.1.0'
-core_version_requirement: '>=8'
-project: 'myfatoorah_drupal_commerce'
