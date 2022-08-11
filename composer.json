@@ -10,11 +10,6 @@
         "myfatoorah/library": "2.0.0",
         "drupal/commerce": "^2.0"
     },
-    "autoload": {
-        "psr-4": {
-            "MyFatoorah\\DrupalCommerce\\": "src"
-        }
-    },
     "keywords": [
         "MyFatoorah",
         "My Fatoorah",
