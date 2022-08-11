@@ -1,6 +1,6 @@
 <?php
 
-namespace MyFatoorah\DrupalCommerce\PluginForm;
+namespace Drupal\myfatoorah_drupa_commerce\PluginForm;
 
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 use Drupal\commerce_payment\PluginForm\PaymentOffsiteForm as BasePaymentOffsiteForm;
