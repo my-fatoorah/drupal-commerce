@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\myfatoorah_drupa_commerce\PluginForm;
+namespace Drupal\myfatoorah_drupal_commerce\PluginForm;
 
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 use Drupal\commerce_payment\PluginForm\PaymentOffsiteForm as BasePaymentOffsiteForm;
@@ -39,7 +39,7 @@ class RedirectCheckoutForm extends BasePaymentOffsiteForm {
         $pluginlog = drupal_get_path('module', 'myfatoorah_drupal_commerce') . '/myfatoorah.log';
 
         $curlData = $this->getPayload($order, $configuration);
-
+        
         $mfObj = new PaymentMyfatoorahApiV2($configuration['apiKey'], $configuration['countryCode'], $configuration['mode'], $pluginlog);
 
         try {

@@ -1,13 +1,13 @@
 myfatoorah_drupal_commerce.callback:
   path: '/myfatoorah/drupalcommerce/callback'
   defaults:
-    _controller: '\MyFatoorah\DrupalCommerce\Controller\ProcessController::callback'
+    _controller: '\Drupal\myfatoorah_drupal_commerce\Controller\ProcessController::callback'
   requirements:
     _permission: 'access content'
     
 myfatoorah_drupal_commerce.webhook:
   path: '/myfatoorah/drupalcommerce/webhook'
   defaults:
-    _controller: '\MyFatoorah\DrupalCommerce\Controller\ProcessController::webhook'
+    _controller: '\Drupal\myfatoorah_drupal_commerce\Controller\ProcessController::webhook'
   requirements:
     _permission: 'access content'
