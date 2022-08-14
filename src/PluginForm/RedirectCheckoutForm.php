@@ -3,6 +3,7 @@
 namespace Drupal\myfatoorah_drupal_commerce\PluginForm;
 
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
+use MyFatoorah\Library\MyfatoorahApiV2;
 use Drupal\commerce_payment\PluginForm\PaymentOffsiteForm as BasePaymentOffsiteForm;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -39,7 +40,7 @@ class RedirectCheckoutForm extends BasePaymentOffsiteForm {
         $pluginlog = drupal_get_path('module', 'myfatoorah_drupal_commerce') . '/myfatoorah.log';
 
         $curlData = $this->getPayload($order, $configuration);
-        
+
         $mfObj = new PaymentMyfatoorahApiV2($configuration['apiKey'], $configuration['countryCode'], $configuration['mode'], $pluginlog);
 
         try {
@@ -97,7 +98,21 @@ class RedirectCheckoutForm extends BasePaymentOffsiteForm {
         $userDefinedField = ($userId && $configuration['saveCard']) ? 'CK-' . $userId : null;
 
         //billing address
-        $billingAddress = $order->getBillingProfile()->get('address')->first();
+        /** @var \Drupal\profile\Entity\ProfileInterface $profile */
+        $profile = $order->getBillingProfile();
+
+        /** @var \Drupal\telephone\Plugin\Field\FieldType\TelephoneItem $telephone */
+        if ($profile->hasField('telephone')) {
+            $telephone = $profile->get('telephone')->value;
+        } else if ($profile->hasField('field_phone')) {
+            $telephone = $profile->get('field_phone')->value;
+        } else {
+            $telephone = null;
+        }
+
+        $phoneArr = $telephone ? MyfatoorahApiV2::getPhone($telephone) : [null, null];
+
+        $billingAddress = $profile->get('address')->first();
         $country_list   = \Drupal::service('address.country_repository')->getList();
         $country        = $country_list[$billingAddress->getCountryCode()];
 
@@ -116,8 +131,8 @@ class RedirectCheckoutForm extends BasePaymentOffsiteForm {
             'CustomerEmail'      => empty($email) ? null : $email,
             'CallBackUrl'        => $callBackUrl,
             'ErrorUrl'           => $callBackUrl,
-            'MobileCountryCode'  => '',
-            'CustomerMobile'     => '',
+            'MobileCountryCode'  => $phoneArr[0],
+            'CustomerMobile'     => $phoneArr[0],
             'Language'           => \Drupal::languageManager()->getCurrentLanguage()->getId(),
             'CustomerReference'  => $orderId,
             'CustomerCivilId'    => null,
@@ -125,6 +140,8 @@ class RedirectCheckoutForm extends BasePaymentOffsiteForm {
             'ExpiryDate'         => null,
             'SourceInfo'         => 'Drupal ' . \Drupal::VERSION . ' - Commerce 2.x - MyFatoorah ' . self::MF_VERSION,
             'CustomerAddress'    => $customerAddress,
+            'ShippingConsignee'  => null,
+            'ShippingMethod'     => null,
             'InvoiceItems'       => [array('ItemName' => 'Total Amount Order #' . $orderId, 'Quantity' => 1, 'UnitPrice' => "$amount")]
                 //'InvoiceItems'       => $this->getInvoiceItems($order)
         ];
