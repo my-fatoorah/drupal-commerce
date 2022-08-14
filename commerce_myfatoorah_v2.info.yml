@@ -1,9 +1,0 @@
-name: Commerce MyFatoorah V2
-description: Provides Integration with the MyFatoorah V2 Payment Gateway (http://www.MyFatoorah.com)
-type: module
-package: Commerce (contrib)
-dependencies:
-  - commerce:commerce_payment
-version: '2.0.0.1'
-core_version_requirement: '>=8'
-project: 'commerce_myfatoorah_v2'
